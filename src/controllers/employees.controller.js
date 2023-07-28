@@ -26,7 +26,6 @@ export const getEmployee = async (req, res) => {
 // ---------CREA UN NNUEVO EMPLEADO--------------
 export const createEmployees = async (req, res) => {
     const {name, salary} = req.body
-
     try {
         //Consulta
         const [rows] = await pool.query('INSERT INTO employee(name, salary) VALUES (?, ?)', [name, salary])
@@ -37,7 +36,7 @@ export const createEmployees = async (req, res) => {
         salary
         })
     } catch (error) {
-        return res.status(500).json({message: 'Something goes wrong'})
+       return res.status(500).json({message: 'Something goes wrong'})
     }
 }
 
